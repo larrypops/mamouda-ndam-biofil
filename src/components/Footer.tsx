@@ -7,6 +7,7 @@ import {
   Instagram,
   Twitter,
 } from "lucide-react";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   return (
@@ -15,9 +16,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="space-y-6">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-display font-bold text-xl">M</span>
-              </div>
+              <BrandLogo className="border-primary/30" />
               <span className="font-display font-bold text-xl tracking-tight text-white">
                 Mamouda Ndam <span className="text-primary">Biofil</span>
               </span>
