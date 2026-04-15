@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
 interface SiteShellProps {
   children: ReactNode;
@@ -31,6 +32,7 @@ export default function SiteShell({ children }: SiteShellProps) {
           {children}
         </motion.div>
       </main>
+      <FloatingWhatsAppButton />
       <Footer />
     </div>
   );
