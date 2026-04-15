@@ -29,10 +29,33 @@ const fadeIn = {
 };
 
 const projectImages = [
-  { src: "/images/IMG_4741.jpg", alt: "Installation Biofil 1" },
+  { src: "/images/IMG_4743.jpg", alt: "Installation Biofil 1" },
   { src: "/images/IMG_4744.jpg", alt: "Installation Biofil 2" },
   { src: "/images/IMG_4745.jpg", alt: "Installation Biofil 3" },
   { src: "/images/IMG_4746.jpg", alt: "Installation Biofil 4" },
+];
+
+const comparisonRows = [
+  {
+    feature: "Vidange",
+    classic: "Régulière & coûteuse",
+    biofil: "Aucun besoin",
+  },
+  {
+    feature: "Odeurs",
+    classic: "Mauvaises odeurs",
+    biofil: "Zéro odeur",
+  },
+  {
+    feature: "Coût long terme",
+    classic: "Élevé (entretien)",
+    biofil: "Économique",
+  },
+  {
+    feature: "Environnement",
+    classic: "Pollution possible",
+    biofil: "Écologique",
+  },
 ];
 
 export default function Home() {
@@ -391,7 +414,34 @@ export default function Home() {
             <p className="text-slate-600">Comparez et faites le choix de la modernité.</p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+          <div className="space-y-4 md:hidden">
+            {comparisonRows.map((row) => (
+              <div
+                key={row.feature}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
+                <p className="text-sm font-bold uppercase tracking-wider text-slate-900">
+                  {row.feature}
+                </p>
+                <div className="mt-4 grid gap-3">
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Fosse classique
+                    </p>
+                    <p className="mt-1 text-slate-700 font-medium">{row.classic}</p>
+                  </div>
+                  <div className="rounded-xl border border-primary/20 bg-primary-light/40 p-3">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-primary-dark">
+                      Biofil
+                    </p>
+                    <p className="mt-1 text-primary font-bold">{row.biofil}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="hidden md:block bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-900 text-white">
@@ -401,16 +451,11 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {[
-                  ["Vidange", "Régulière & coûteuse", "Aucun besoin"],
-                  ["Odeurs", "Mauvaises odeurs", "Zéro odeur"],
-                  ["Coût long terme", "Élevé (entretien)", "Économique"],
-                  ["Environnement", "Pollution possible", "Écologique"],
-                ].map((row, i) => (
-                  <tr key={i} className="hover:bg-slate-50 transition-colors">
-                    <td className="p-6 font-bold text-slate-900">{row[0]}</td>
-                    <td className="p-6 text-slate-500">{row[1]}</td>
-                    <td className="p-6 text-primary font-bold">{row[2]}</td>
+                {comparisonRows.map((row) => (
+                  <tr key={row.feature} className="hover:bg-slate-50 transition-colors">
+                    <td className="p-6 font-bold text-slate-900">{row.feature}</td>
+                    <td className="p-6 text-slate-500">{row.classic}</td>
+                    <td className="p-6 text-primary font-bold">{row.biofil}</td>
                   </tr>
                 ))}
               </tbody>
